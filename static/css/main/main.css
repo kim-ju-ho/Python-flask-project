@@ -42,7 +42,7 @@
     margin-bottom: 10px;
 }
 
-#deleteBtn{
+#deleteBtn, #modifyBtn{
     float: right;
 }
 
@@ -57,4 +57,7 @@
 .nav_user span {
     color: #727272;
     font-weight: bold;
+}
+#modifyBtn{
+    margin-right: 10px;
 }
