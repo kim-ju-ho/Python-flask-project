@@ -69,8 +69,10 @@ def auth():
 def homework_post():
     name_receive = request.form['name']
     comment_receive = request.form['comment']
-    all_comments = list(db.homework.find({}, {'_id': False}))
+    all_comments = list(db.homework.find({}, {'commentNo': True}))
+    print(all_comments)
     count = len(all_comments) + 1
+
     doc = {
         'commentNo': count,
         'name': name_receive,

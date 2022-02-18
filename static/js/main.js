@@ -41,7 +41,6 @@ function show_comment() {
                                         <button type="submit" class="btn btn-outline-dark" id="deleteBtn" onclick="deleteComment(${commentNo})">Delete</button>
                                         <button type="button" class="btn btn-outline-dark" id="modifyBtn" onclick="modifyForm(${name},${comment},${commentNo})">Modify</button>
                                     </div>
-                                    
                                 </div>`;
                 $('#comment-list').append(temp_html);
 
@@ -53,8 +52,9 @@ function show_comment() {
 
 function modifyForm(name,comment,count){
 
-    let commentDiv = $('#comment'+count);
-    console.log(commentDiv);
+    $('#comment'+count).empty();
+
+    console.log( $('#comment'+count));
 
 }
 
