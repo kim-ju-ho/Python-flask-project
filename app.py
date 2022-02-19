@@ -65,13 +65,15 @@ def auth():
 # -----------------------------------------------------------------
 # main
 # -----------------------------------------------------------------
+# COMMENT INSERT
 @app.route("/homework", methods=["POST"])
 def homework_post():
     name_receive = request.form['name']
     comment_receive = request.form['comment']
-    all_comments = list(db.homework.find({}, {'commentNo': True}))
-    print(all_comments)
-    count = len(all_comments) + 1
+    max_comment = db.homework.find_one(sort=[("commentNo", -1)])
+    print(max_comment['commentNo'])
+
+    count = max_comment['commentNo'] + 1
 
     doc = {
         'commentNo': count,
@@ -83,12 +85,14 @@ def homework_post():
     return jsonify({'msg': 'comment 등록 완료'})
 
 
+# COMMENT LIST
 @app.route("/homework", methods=["GET"])
 def homework_get():
-    comment_list = list(db.homework.find({}, {'_id': False}))
+    comment_list = list(db.homework.find({}, {"_id": False}))
     return jsonify({'msg': comment_list})
 
 
+# COMMENT 삭제
 @app.route("/deleteComment", methods=["POST"])
 def delete_comment():
     comment = request.form['commentNo']
