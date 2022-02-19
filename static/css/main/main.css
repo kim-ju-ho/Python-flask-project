@@ -42,7 +42,7 @@
     margin-bottom: 10px;
 }
 
-#deleteBtn, #modifyBtn{
+#deleteBtn, #modifyBtn, #saveBtn{
     float: right;
 }
 
@@ -60,4 +60,7 @@
 }
 #modifyBtn{
     margin-right: 10px;
+}
+#saveBtn{
+    margin-top: 10px;
 }

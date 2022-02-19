@@ -71,8 +71,6 @@ def homework_post():
     name_receive = request.form['name']
     comment_receive = request.form['comment']
     max_comment = db.homework.find_one(sort=[("commentNo", -1)])
-    print(max_comment['commentNo'])
-
     count = max_comment['commentNo'] + 1
 
     doc = {

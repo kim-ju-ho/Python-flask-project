@@ -39,22 +39,26 @@ function show_comment() {
                                             <footer class="blockquote-footer">${name}</footer>
                                         </blockquote>
                                         <button type="submit" class="btn btn-outline-dark" id="deleteBtn" onclick="deleteComment(${commentNo})">Delete</button>
-                                        <button type="button" class="btn btn-outline-dark" id="modifyBtn" onclick="modifyForm(${name},${comment},${commentNo})">Modify</button>
+                                        <a class="btn btn-outline-dark" id="modifyBtn" data-bs-toggle="modal" href="#exampleModalToggle" role="button"onclick="modifyForm(${name},${comment},${commentNo})">Modify</a>
                                     </div>
                                 </div>`;
                 $('#comment-list').append(temp_html);
 
             }
 
-        }
+         }
     });
 }
 
 function modifyForm(name,comment,count){
 
-    $('#comment'+count).empty();
-
-    console.log( $('#comment'+count));
+    let commSection   =$('#comment'+count);
+    let commentInfo   ={
+        commentName : $('#modifyName'),
+        comment     : $('#modifyComment')
+    }
+    commentInfo.commentName.val(name);
+    commentInfo.comment.val(comment);
 
 }
 
