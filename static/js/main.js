@@ -2,6 +2,7 @@ $(document).ready(function () {
     set_temp();
     show_comment();
 });
+
 function save_comment() {
     let name = $('#name').val();
     let comment = $('#comment').val();
@@ -27,11 +28,11 @@ function show_comment() {
         success: function (response) {
             console.log(response)
             let rows = response['msg'];
-            for (let i = rows.length-1; i >-1; i--) {
+            for (let i = rows.length - 1; i > -1; i--) {
                 let name = rows[i]['name'];
                 let comment = rows[i]['comment'];
                 let commentNo = rows[i]['commentNo']
-                let commentDiv = "comment"+commentNo
+                let commentDiv = "comment" + commentNo
                 let temp_html = `<div class="card" id="${commentDiv}">
                                     <div class="card-body">
                                         <blockquote class="blockquote mb-0">
@@ -46,29 +47,49 @@ function show_comment() {
 
             }
 
-         }
+        }
     });
 }
 
-function modifyForm(name,comment,count){
-
-    let commSection   =$('#comment'+count);
-    let commentInfo   ={
-        commentName : $('#modifyName'),
-        comment     : $('#modifyComment')
+function modifyForm(name, comment, count) {
+    let commentInfo = {
+        commentName: $('#modifyName'),
+        comment: $('#modifyComment'),
+        commentNo: $('#modifyCommentNo')
     }
+
     commentInfo.commentName.val(name);
     commentInfo.comment.val(comment);
+    commentInfo.commentNo.val(count);
+
+    $('#saveCommentBtn').one('click', function () {
+        $.ajax({
+            type: 'POST',
+            url: '/modifyComment',
+            data: {
+                'commentName': commentInfo.commentName.val(),
+                'comment'    : commentInfo.comment.val(),
+                'commentNo'  : commentInfo.commentNo.val()
+            },
+            success: function (response) {
+                 window.location.reload();
+
+            }
+        })
+
+    });
+
 
 }
 
-function deleteComment(count){
+
+function deleteComment(count) {
     $.ajax({
         type: "POST",
         url: "/deleteComment",
         data: {'commentNo': count},
         success: function (response) {
-         window.location.reload();
+            window.location.reload();
 
         }
     });

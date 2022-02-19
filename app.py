@@ -98,6 +98,18 @@ def delete_comment():
     return jsonify({'msg': '삭제 성공'})
 
 
+# COMMENT 수정
+@app.route("/modifyComment", methods=["POST"])
+def modify_comment():
+    comment_name = request.form['commentName']
+    comment = request.form['comment']
+    comment_no = request.form['commentNo']
+    print(comment_no, comment_name, comment)
+
+    db.homework.update_one({'commentNo': int(comment_no)}, {'$set': {'name': comment_name, 'comment': comment}})
+    return jsonify({'msg': '삭제 성공'})
+
+
 # -----------------------------------------------------------------
 # photo
 # -----------------------------------------------------------------
