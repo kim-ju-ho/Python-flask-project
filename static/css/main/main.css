@@ -62,3 +62,22 @@
     margin-right: 10px;
 }
 
+.bbsSection{
+    margin: 20px auto auto auto;
+    border-top: solid 3px black;
+    width: 70%;
+
+}
+.page{
+    width: 100%;
+}
+
+.bbsPaging{
+    margin-top:40px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+tbody tr{
+    cursor: pointer;
+}

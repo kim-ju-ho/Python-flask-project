@@ -9,6 +9,9 @@ function nav_home(){
 function nav_photo() {
     window.location="photo";
 }
+function nav_bbs(){
+    window.location="bbs";
+}
 function nav_login(){
     window.location="login";
 }

@@ -39,6 +39,11 @@ def photo():
     return render_template('photo.html')
 
 
+@app.route("/bbs")
+def bbs():
+    return render_template('bbs.html')
+
+
 @app.route("/login")
 def login():
     return render_template('login.html')
