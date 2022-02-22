@@ -201,6 +201,15 @@ def chk_id_dup():
 
     return jsonify({'msg': chk_id})
 
+# -----------------------------------------------------------------
+# bbs
+# -----------------------------------------------------------------+
+
+@app.route("/bbs_page", methods=["GET"])
+def bbs_page():
+
+    return jsonify({'msg': ''})
+
 
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5000, debug=True)
