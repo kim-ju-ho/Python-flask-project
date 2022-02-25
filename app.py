@@ -12,6 +12,7 @@ import certifi
 # -----------------------------------------------------------------
 app.secret_key = 'super secret key'
 app.config['SESSION_TYPE'] = 'filesystem'
+app.config["PERMANENT_SESSION_LIFETIME"] = timedelta(minutes=30) # 세션유지 시간을 30분으로 지정
 # -----------------------------------------------------------------
 # 암호화
 # -----------------------------------------------------------------
@@ -200,6 +201,14 @@ def chk_id_dup():
         chk_id = True
 
     return jsonify({'msg': chk_id})
+
+# -----------------------------------------------------------------
+# bbs
+# -----------------------------------------------------------------+\
+
+@app.route("/bbs_page", methods=["GET"])
+def bbs_page():
+    return jsonify({'msg': ''})
 
 
 if __name__ == '__main__':
