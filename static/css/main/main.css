@@ -26,7 +26,14 @@
     box-shadow: 0px 0px 3px 0px black;
     padding: 20px;
 }
+.writeBbsSection{
+    width: 95%;
+    max-width: 1200px;
+    margin: 20px auto 20px auto;
 
+    box-shadow: 0px 0px 3px 0px black;
+    padding: 20px;
+}
 .mypost > button {
     margin-top: 15px;
 }
@@ -66,7 +73,18 @@
     margin: 20px auto auto auto;
     border-top: solid 3px black;
     width: 70%;
-
+}
+.bbsName{
+    width: 70%;
+    margin: 20px auto auto auto;
+}
+#writeBbsBtn{
+    float: right;
+    font-size: 10px;
+}
+#writeBtn{
+    font-size: 10px;
+    margin: 0 0 0 95%;
 }
 .page{
     width: 100%;

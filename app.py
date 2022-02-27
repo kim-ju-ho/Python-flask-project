@@ -12,7 +12,6 @@ import certifi
 # -----------------------------------------------------------------
 app.secret_key = 'super secret key'
 app.config['SESSION_TYPE'] = 'filesystem'
-app.config["PERMANENT_SESSION_LIFETIME"] = timedelta(minutes=30) # 세션유지 시간을 30분으로 지정
 # -----------------------------------------------------------------
 # 암호화
 # -----------------------------------------------------------------
@@ -42,7 +41,12 @@ def photo():
 
 @app.route("/bbs")
 def bbs():
-    return render_template('bbs.html')
+    return render_template('bbs/listBbs.html')
+
+
+@app.route("/write_bbs")
+def write_bbs():
+    return render_template('bbs/writeBbs.html')
 
 
 @app.route("/login")
@@ -209,6 +213,16 @@ def chk_id_dup():
 @app.route("/bbs_page", methods=["GET"])
 def bbs_page():
     return jsonify({'msg': ''})
+
+
+@app.route("/enroll_bbs", methods=["POST"])
+def enroll_bbs():
+    title = request.form.get('title')
+    print(title)
+    return jsonify({'msg': title})
+
+
+
 
 
 if __name__ == '__main__':

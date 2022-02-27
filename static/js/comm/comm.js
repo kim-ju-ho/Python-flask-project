@@ -20,6 +20,10 @@ function signUp(){
     window.location="signUp";
 }
 
+function write_bbs(){
+    window.location="write_bbs";
+}
+
 function nav_logout(){
         $.ajax({
         type: "GET",

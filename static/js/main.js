@@ -40,7 +40,7 @@ function show_comment() {
                                             <footer class="blockquote-footer">${name}</footer>
                                         </blockquote>
                                         <button type="submit" class="btn btn-outline-dark" id="deleteBtn" onclick="deleteComment(${commentNo})">Delete</button>
-                                        <a class="btn btn-outline-dark" id="modifyBtn" data-bs-toggle="modal" href="#exampleModalToggle" role="button"onclick="modifyForm(${name},${comment},${commentNo})">Modify</a>
+                                        <a class="btn btn-outline-dark" onclick="modifyForm(${name},${comment},${commentNo})" id="modifyBtn" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Modify</a>
                                     </div>
                                 </div>`;
                 $('#comment-list').append(temp_html);
@@ -62,6 +62,7 @@ function modifyForm(name, comment, count) {
     commentInfo.comment.val(comment);
     commentInfo.commentNo.val(count);
 
+    // 모달내부의 save 버튼 클릭 이벤트
     $('#saveCommentBtn').one('click', function () {
         $.ajax({
             type: 'POST',

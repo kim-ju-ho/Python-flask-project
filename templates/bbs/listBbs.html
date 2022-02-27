@@ -21,7 +21,6 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200;300;400;500;600;700;900&display=swap"
           rel="stylesheet">
-    <script src="{{ url_for('static', filename='js/bbs.js') }}"></script>
     <script src="{{ url_for('static', filename='js/comm/comm.js') }}"></script>
 
 
@@ -29,34 +28,41 @@
 <body>
 
 {% include 'comm/nav.html' %}
-
+<div class="bbsName">
+    <h1>게시판</h1>
+</div>
 <div class="bbsSection">
+
     <table class="table table-striped table-hover">
         <thead>
         <td>#</td>
         <td>Title</td>
+        <td>name</td>
+        <td>date</td>
+        <td>count</td>
         </thead>
         <tbody>
-        <tr>
-            <td>1</td>
-            <td>제목</td>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>제목</td>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>제목</td>
-        </tr>
-          <tr>
-            <td>1</td>
-            <td>제목</td>
-        </tr>
-
+{#        #}
+{#         {% if datas.count() > 0 %}#}
+{#            {% for data in datas %}#}
+{#            <tr>#}
+{#                <td>{{loop.index}}</td> # 게시물 번호 매기기#}
+{#                <td><a href="{{url_for('board_view', idx=data._id)}}">{{data.title}}</a></td>#}
+{#                <td>{{data.name}}</td>#}
+{#                <td>{{data.pubdate|formatdatetime}}</td>#}
+{#                <td>{{data.view}}</td>#}
+{#                </tr>#}
+{#            {% endfor %}#}
+{#            {% else %}#}
+{#            <h3>데이터가 존재하지 않습니다.</h3>#}
+{#            {% endif %}#}
+            <tr>
+                <td><h3>데이터가 존재하지 않습니다.</h3></td>
+            </tr>
         </tbody>
 
     </table>
+    <button type="button" class="btn btn-success" id="writeBbsBtn" onclick="write_bbs()">등록</button>
 </div>
 <div class="page">
     <nav aria-label="Page navigation example" class="bbsPaging">
