@@ -206,6 +206,7 @@ def chk_id_dup():
 
     return jsonify({'msg': chk_id})
 
+
 # -----------------------------------------------------------------
 # bbs
 # -----------------------------------------------------------------+\
@@ -220,9 +221,6 @@ def enroll_bbs():
     title = request.form.get('title')
     print(title)
     return jsonify({'msg': title})
-
-
-
 
 
 if __name__ == '__main__':
